@@ -1,0 +1,136 @@
+.details_page {
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.details_banner {
+    padding: 32px 80px;
+    text-align: center;
+    margin-top: -50px;
+    background: var(--gradient-banner);
+    color: var(--text);
+
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.details_banner h1 {
+    font-size: 34px;
+    margin-bottom: 6px;
+}
+
+.details_banner p {
+    font-size: 18px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+
+.details_grid {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 60px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+
+.details_card {
+    padding: 32px;
+    border-radius: 16px;
+    color: var(--text);
+    min-height: 260px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.details_card:hover {
+    transform: translateY(-6px);
+}
+
+.details_card h2 {
+    font-size: 26px;
+    margin-bottom: 16px;
+}
+
+.details_card p {
+    font-size: 17px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+
+.details_card.tech {
+    background: var(--gradient-tech);
+    animation-delay: 0.15s;
+}
+
+.details_card.api {
+    background: var(--gradient-api);
+    animation-delay: 0.3s;
+}
+
+.details_card.learning {
+    background: var(--gradient-learning);
+    animation-delay: 0.45s;
+}
+
+@media (min-width: 1440px) {
+
+}
+
+
+@media (max-width: 600px) {
+
+    .details_banner {
+        padding: 24px 16px;
+    }
+
+    .details_banner h1 {
+        font-size: 32px;
+    }
+
+    .details_grid {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+        gap: 24px;
+    }
+
+    .details_card {
+        padding: 24px;
+        min-height: auto;
+    }
+
+    .details_card h2 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .details_card p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}

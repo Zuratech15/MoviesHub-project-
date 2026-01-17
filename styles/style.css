@@ -1,0 +1,334 @@
+:root {
+    --bg: #000000;
+    --text: #ffffff;
+    --primary-color: #ed3939;
+    --primary-color-hover: #c92f2f;
+    --card-bg: #e6e6e6;
+    --poster: rgba(0, 0, 0, 0.75);
+    --border: rgba(255, 255, 255, 0.15);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --rating: #ffc400;
+
+    --gradient-banner: linear-gradient(135deg, #ed3939, #8b1d1d);
+    --gradient-tech: linear-gradient(135deg, #1e3c72, #2a5298);
+    --gradient-api: linear-gradient(135deg, #0f9b8e, #0d6b63);
+    --gradient-learning: linear-gradient(135deg, #6a11cb, #2575fc);
+
+
+    --header-h: 85px;
+}
+
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.header-fixed {
+    padding-top: var(--header-h);
+}
+
+main {
+    flex: 1;
+}
+
+section {
+    scroll-margin-top: var(--header-h);
+}
+
+
+.header {
+    height: var(--header-h);
+    padding: 16px 54px 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+    border-bottom: 1px solid var(--border);
+    background-color: var(--bg);
+    z-index: 1000;
+}
+
+
+.header.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 37px;
+    margin-left: 60px;
+    line-height: 31px;
+}
+
+.nav_ul {
+    display: flex;
+    gap: 18px;
+    font-size: 22px;
+}
+
+.nav_ul a {
+    color: var(--text);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav_ul a:hover {
+    opacity: 0.7;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 30px;
+    height: 4px;
+    background-color: var(--text);
+}
+
+
+.mobile_menu {
+    position: absolute;
+    top: var(--header-h);
+    right: 0;
+    width: 100%;
+    background-color: var(--bg);
+    display: none;
+    padding: 24px 0;
+    z-index: 999;
+}
+
+.mobile_menu.active {
+    display: block;
+}
+
+body.header-fixed .mobile_menu {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: auto;
+}
+
+.mobile_menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.mobile_menu a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 22px;
+}
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero_content {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    animation: fadeUp 0.6s ease;
+}
+
+.hero_content h1 {
+    font-size: 37px;
+    margin-bottom: 23px;
+}
+
+.hero_content p {
+    font-size: 23px;
+    margin-bottom: 28px;
+    max-width: 538px;
+}
+
+.hero_content button {
+    background: var(--primary-color);
+    color: var(--text);
+    border: none;
+    padding: 15px 24px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hero_content button:hover {
+    background-color: var(--primary-color-hover);
+    transform: scale(1.05);
+}
+
+.movies_section {
+    padding: 40px 60px;
+}
+
+.section_title {
+    margin-bottom: 32px;
+    font-size: 28px;
+}
+
+.movies_wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.movie_card {
+    background: var(--card-bg);
+    height: 189px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.movie_card:hover {
+    transform: scale(1.03);
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie_info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    padding: 10px 14px;
+    background: var(--poster);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 14px;
+}
+
+.year {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.rating {
+    color: var(--rating);
+    font-size: 13px;
+}
+
+
+.footer {
+    padding: 18px 60px;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 26px;
+    line-height: 31px;
+    opacity: 0.85;
+    text-align: center;
+}
+
+@media (min-width: 1440px) {
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav_ul {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+        margin-right: 20px;
+    }
+
+    .logo {
+        font-size: 22px;
+        margin-left: 16px;
+        line-height: 31px;
+    }
+
+    .hero {
+        height: 220px;
+    }
+
+    .hero_content {
+        top: 20px;
+        left: 16px;
+        transform: none;
+        max-width: 260px;
+    }
+
+    .hero_content h1 {
+        font-size: 22px;
+    }
+
+    .hero_content p {
+        font-size: 14px;
+        display: block;
+    }
+
+    .hero_content button {
+        font-size: 14px;
+        padding: 10px 16px;
+        display: inline-block;
+    }
+
+    .movies_section {
+        padding: 24px 16px;
+    }
+
+    .movies_wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .footer_content {
+        flex-direction: column;
+        gap: 18px;
+    }
+}
