@@ -52,25 +52,7 @@ if (wrapper) {
 </a>
                 `;
             });
-
-
-            const cards = wrapper.querySelectorAll('.movie_card');
-            if (cards.length) {
-                const io = new IntersectionObserver((entries, obs) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            obs.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.12 });
-
-                cards.forEach((c, i) => {
-                    c.classList.add('reveal');
-                    c.style.transitionDelay = `${i * 70}ms`;
-                    io.observe(c);
-                });
-            }
+      
         });
 }
 
@@ -104,3 +86,4 @@ if (viewMoviesBtn && moviesSection) {
         });
     });
 }
+
